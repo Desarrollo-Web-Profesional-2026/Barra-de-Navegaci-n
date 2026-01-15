@@ -5,6 +5,9 @@ import { ImBooks } from "react-icons/im";
 import { MdMenu } from "react-icons/md";
 import { PiShoppingCartLight } from "react-icons/pi";
 import MenuResponsivo from "./MenuResponsivo";
+import { motion } from "motion/react"; //Animacion 1
+
+//import data from 'autoprefixer/data/index.js'
 
 const Navbar = () => {
   const [abierto, setAbierto] = useState(false);
@@ -13,7 +16,7 @@ const Navbar = () => {
     <>
       <nav>
         <div className="container flex justify-between items-center py-8 font-bold">
-          
+
           {/* Logo */}
           <div className="text-2xl flex items-center gap-2 uppercase">
             <ImBooks />
@@ -26,12 +29,27 @@ const Navbar = () => {
             <ul className="flex items-center gap-7 text-gray-600">
               {navbarLinks.map((item) => (
                 <li key={item.id}>
-                  <a
+                  <motion.a
                     href={item.url}
-                    className="inline-block py-1 px-3 hover:text-primary duration-300"
+                    className="relative inline-block py-1 px-3"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    whileHover="hover"
                   >
                     {item.title}
-                  </a>
+
+                    <motion.span
+                      className="absolute left-0 bottom-0 h-[2px] w-full bg-primary"
+                      variants={{
+                        hover: { scaleX: 1 },
+                        initial: { scaleX: 0 },
+                      }}
+                      initial="initial"
+                      transition={{ duration: 0.3 }}
+                      style={{ transformOrigin: "left" }}
+                    />
+                  </motion.a>º
+
                 </li>
               ))}
             </ul>
@@ -52,10 +70,22 @@ const Navbar = () => {
 
           {/* Menú móvil */}
           <div className="md:hidden">
-            <MdMenu
-              className="text-4xl cursor-pointer"
-              onClick={() => setAbierto(!abierto)}
-            />
+            <motion.div
+              animate={{
+                rotate: abierto ? 90 : 0,
+                scale: abierto ? 1.2 : 1,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 200,
+                damping: 10,
+              }}
+            >
+              <MdMenu
+                className="text-4xl cursor-pointer"
+                onClick={() => setAbierto(!abierto)}
+              />
+            </motion.div>
           </div>
 
         </div>
