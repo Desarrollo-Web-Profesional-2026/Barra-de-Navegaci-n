@@ -3,7 +3,9 @@ const navbarLinks = [
   { id: 2, title: "Sobre Nosotros", url: "/about" },
   { id: 3, title: "Cursos", url: "/cursos" },
   { id: 4, title: "Contacto", url: "/contacto" },
-  { id: 5, title: "Login", url: "/login" }
+  { id: 5, title: "Login", url: "/login" },
+  { id: 6, title: "Recursos", url: "/recursos" }
+
 ];
 
 export { navbarLinks };

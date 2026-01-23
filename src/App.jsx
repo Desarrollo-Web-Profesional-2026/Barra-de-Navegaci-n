@@ -6,6 +6,8 @@ import About from "./componentes/secciones/About";
 import Cursos from "./componentes/secciones/Cursos";
 import Contacto from "./componentes/secciones/Contacto";
 import Login from "./componentes/secciones/Login";
+import Recursos from "./componentes/secciones/Recursos";
+
 
 
 const App = () => {
@@ -19,6 +21,9 @@ const App = () => {
         <Route path="/cursos" element={<Cursos />} />
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/recursos" element={<Recursos />} />
+
+        
       </Routes>
     </BrowserRouter>
   );

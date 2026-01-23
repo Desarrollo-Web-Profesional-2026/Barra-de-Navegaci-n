@@ -13,17 +13,27 @@ const Navbar = () => {
 
   return (
     <>
-      <nav>
+      {/* NAVBAR ANIMADO */}
+      <motion.nav
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="bg-white/70 backdrop-blur-md sticky top-0 z-50"
+      >
         <div className="container flex justify-between items-center py-8 font-bold">
 
-          {/* Logo */}
-          <div className="text-2xl flex items-center gap-2 uppercase">
+          {/* LOGO ANIMADO */}
+          <motion.div
+            className="text-2xl flex items-center gap-2 uppercase cursor-pointer"
+            whileHover={{ scale: 1.08 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
             <ImBooks />
             <p>El sitio de BARG</p>
             <p className="text-secondary">Cursos</p>
-          </div>
+          </motion.div>
 
-          {/* Menú desktop */}
+          {/* MENÚ DESKTOP */}
           <div className="hidden md:block">
             <ul className="flex items-center gap-7 text-gray-600">
               {navbarLinks.map((item) => (
@@ -39,7 +49,7 @@ const Navbar = () => {
                       {item.title}
                     </Link>
 
-                    {/* Línea animada */}
+                    {/* LÍNEA ANIMADA */}
                     <motion.span
                       className="absolute left-0 bottom-0 h-[2px] w-full bg-primary"
                       variants={{
@@ -55,20 +65,34 @@ const Navbar = () => {
             </ul>
           </div>
 
-          {/* Iconos */}
+          {/* ICONOS */}
           <div className="flex items-center gap-4">
-            <button className="text-2xl hover:bg-primary hover:text-white rounded-full p-2 duration-300">
+            <motion.button
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+              className="text-2xl hover:bg-primary hover:text-white rounded-full p-2 duration-300"
+            >
               <CiSearch />
-            </button>
-            <button className="text-2xl hover:bg-primary hover:text-white rounded-full p-2 duration-300">
+            </motion.button>
+
+            <motion.button
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+              className="text-2xl hover:bg-primary hover:text-white rounded-full p-2 duration-300"
+            >
               <PiShoppingCartLight />
-            </button>
-            <button className="hidden md:block bg-secondary text-white px-4 py-2 rounded-md hover:bg-primary duration-300">
+            </motion.button>
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="hidden md:block bg-secondary text-white px-4 py-2 rounded-md hover:bg-primary duration-300"
+            >
               Ingresar
-            </button>
+            </motion.button>
           </div>
 
-          {/* Menú móvil */}
+          {/* MENÚ MÓVIL */}
           <div className="md:hidden">
             <motion.div
               animate={{
@@ -89,9 +113,9 @@ const Navbar = () => {
           </div>
 
         </div>
-      </nav>
+      </motion.nav>
 
-      {/* Menú responsivo */}
+      {/* MENÚ RESPONSIVO */}
       <MenuResponsivo open={abierto} navbarLinks={navbarLinks} />
     </>
   );
