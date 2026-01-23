@@ -5,9 +5,8 @@ import { ImBooks } from "react-icons/im";
 import { MdMenu } from "react-icons/md";
 import { PiShoppingCartLight } from "react-icons/pi";
 import MenuResponsivo from "./MenuResponsivo";
-import { motion } from "motion/react"; //Animacion 1
-
-//import data from 'autoprefixer/data/index.js'
+import { motion } from "motion/react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [abierto, setAbierto] = useState(false);
@@ -28,28 +27,29 @@ const Navbar = () => {
           <div className="hidden md:block">
             <ul className="flex items-center gap-7 text-gray-600">
               {navbarLinks.map((item) => (
-                <li key={item.id}>
-                  <motion.a
-                    href={item.url}
-                    className="relative inline-block py-1 px-3"
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
+                <li key={item.id} className="relative">
+                  <motion.div
+                    initial="initial"
                     whileHover="hover"
                   >
-                    {item.title}
+                    <Link
+                      to={item.url}
+                      className="inline-block py-1 px-3 hover:text-primary"
+                    >
+                      {item.title}
+                    </Link>
 
+                    {/* Línea animada */}
                     <motion.span
                       className="absolute left-0 bottom-0 h-[2px] w-full bg-primary"
                       variants={{
-                        hover: { scaleX: 1 },
                         initial: { scaleX: 0 },
+                        hover: { scaleX: 1 },
                       }}
-                      initial="initial"
                       transition={{ duration: 0.3 }}
                       style={{ transformOrigin: "left" }}
                     />
-                  </motion.a>º
-
+                  </motion.div>
                 </li>
               ))}
             </ul>
