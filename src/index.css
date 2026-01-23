@@ -1,21 +1,26 @@
 @import "tailwindcss";
 
 @theme {
---color-primary: #ff8901;
---color-secondary: #fb923c;
---container-center: true;
---container-padding: 2rem;
-}
-@media (width >= 640px) {
-/* sm */
---container-padding: 2rem;
-}
-@media (width >= 1024px) {
-/* lg */
---container-padding: 4rem;
-}
-@media (width >= 1280px) {
-/* xl */
---container-padding: 5rem;
+    --color-primary: #5a6ef3;
+    --color-secondary: #5a6ef3;
+    --container-center: true;
+    --container-padding: 2rem;
 }
 
+@media (width >=640px) {
+    /* sm */
+    --container-padding: 2rem;
+}
+
+@media (width >=1024px) {
+    /* lg */
+    --container-padding: 4rem;
+}
+
+@media (width >=1280px) {
+    /* xl */
+    --container-padding: 5rem;
+}
+body {
+  @apply min-h-screen bg-gradient-to-br from-blue-50 via-white to-pink-100;
+}
