@@ -4,7 +4,7 @@ const Contacto = () => {
       
       <div className="w-full max-w-xl bg-white/80 backdrop-blur rounded-3xl shadow-xl p-10">
         <h2 className="text-4xl font-bold mb-6 text-center text-gray-800">
-          Contáctanos
+          ¡¡Contáctanos!!
         </h2>
 
         <p className="text-gray-600 text-center mb-8">
@@ -31,7 +31,7 @@ const Contacto = () => {
           />
 
           <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold transition">
-            Enviar mensaje
+            Enviar Mensaje
           </button>
         </div>
       </div>
