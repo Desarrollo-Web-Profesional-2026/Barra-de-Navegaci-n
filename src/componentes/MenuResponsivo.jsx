@@ -23,7 +23,7 @@ const MenuResponsivo = ({ open, navbarLinks }) => {
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: "spring" }}
                 >
-                  {item.title}
+                  <a href={item.url}>{item.title}</a>
                 </motion.li>
               ))}
             </ul>
@@ -32,6 +32,8 @@ const MenuResponsivo = ({ open, navbarLinks }) => {
       )}
     </AnimatePresence>
   );
+
+  
 };
 
 export default MenuResponsivo;

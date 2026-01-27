@@ -6,10 +6,13 @@ import { MdMenu } from "react-icons/md";
 import { PiShoppingCartLight } from "react-icons/pi";
 import MenuResponsivo from "./MenuResponsivo";
 import { motion } from "motion/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 const Navbar = () => {
   const [abierto, setAbierto] = useState(false);
+  const navigate = useNavigate();
+
 
   return (
     <>
@@ -86,10 +89,12 @@ const Navbar = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => navigate("/login")}
               className="hidden md:block bg-secondary text-white px-4 py-2 rounded-md hover:bg-primary duration-300"
             >
               Ingresar
             </motion.button>
+
           </div>
 
           {/* MENÚ MÓVIL */}
